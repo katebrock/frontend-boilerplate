@@ -1,7 +1,11 @@
 var gulp = require('gulp');
 var jscs = require('gulp-jscs');
 var sass = require('gulp-sass');
-var babel = require('gulp-babel');
+var browserify = require('browserify');
+var babelify = require('babelify');
+var source = require('vinyl-source-stream');
+
+
 var del = require('del');
 
 gulp.task('lint', function() {
@@ -13,9 +17,14 @@ gulp.task('lint', function() {
 });
 
 gulp.task('babel', function () {
-  return gulp.src('./src/**/*.js')
-    .pipe(babel())
-    .pipe(gulp.dest('dist'));
+  browserify({
+    debug: true
+  })
+  .require('./src/js/app.js', { entry: true })
+    .transform(babelify)
+    .bundle()
+    .pipe(source('bundle.js'))
+    .pipe(gulp.dest('./dist/js'));
 });
 
 gulp.task('sass', function () {
