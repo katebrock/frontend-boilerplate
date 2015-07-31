@@ -4,9 +4,8 @@ var sass = require('gulp-sass');
 var browserify = require('browserify');
 var babelify = require('babelify');
 var source = require('vinyl-source-stream');
-
-
 var del = require('del');
+var Karma = require('karma');
 
 gulp.task('lint', function() {
   return gulp.src('./src/**/*.js')
@@ -46,6 +45,14 @@ gulp.task('copy', function () {
 
   gulp.src('./src/index.html')
     .pipe(gulp.dest('dist'));
+});
+
+
+gulp.task('test', function (done) {
+  new Karma.Server({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done).start();
 });
 
 
