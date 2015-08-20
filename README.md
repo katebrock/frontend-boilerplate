@@ -8,7 +8,7 @@
 - `cd <projectname>`
 - `rm -rf .git`
 - `git init`
--  Create a new repo on Github.com and [add the remote](https://help.github.com/articles/adding-a-remote/). 
+-  Create a new repo on Github.com and [add the remote](https://help.github.com/articles/adding-a-remote/).
 
 - `npm install`
   - This will install the node dependencies for you, and will also install any bower components.
@@ -46,3 +46,8 @@ If you want to compile your SASS (.scss files), then run the command:
 
 If you want to compile your ES6/ES7 (ES2015/17) Javascript code to ES5 to use new Javascript features now before the browser supports them, then run this command:
 `gulp babel`
+
+## Deploy your project to GitHub Pages
+
+If you want to deploy your project (dist folder) to GitHub pages, then run this command:
+`gulp deploy`
