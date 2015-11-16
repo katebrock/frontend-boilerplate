@@ -9,11 +9,11 @@ var Karma = require('karma');
 var ghPages = require('gulp-gh-pages');
 
 gulp.task('lint', function() {
-  return gulp.src('./src/**/*.js')
-    .pipe(jscs({
-       esnext: true,
-       preset: 'airbnb'
-     }))
+  // return gulp.src('./src/**/*.js')
+  //   .pipe(jscs({
+  //      esnext: true,
+  //      preset: 'airbnb'
+  //    }))
 });
 
 gulp.task('babel', function () {
